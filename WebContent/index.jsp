@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  <%@taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,11 +53,12 @@
 		        	<li>
 		                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-liuliangyunpingtaitubiao03 left" onmouseenter="getLeftTips(this, '代理商管理')" onmouseleave="layer.closeAll('tips')"></i><font>前台零售</font><i class="iconfont icon-dajiantouyou right"></i></a>
 		                <dl>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_add.html',this, 'page10022')">药品结算</a></dt>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_list.html',this, 'page10023')">购买记录</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/goods_findAllShopGoods',this, 'page10021')">药品查询</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/shop/shop_addList.jsp',this, 'page10022')">药品结算</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/shop/user_login.jsp',this, 'page10027')">会员登录</a></dt>
+		                	<%-- <dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/shop/shop_settle.jsp',this, 'page10022')">药品结算</a></dt> --%>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/shop/indent_findIndent',this, 'page10023')">购买记录</a></dt>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_list.html',this, 'page10023')">退换处理</a></dt>
-		                	
-		                	
 		                </dl>
 		            </li>
 		        	<li>
@@ -64,15 +66,15 @@
 		                <dl>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/type_findAllType',this, 'page10024')">药品分类列表</a></dt>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/goods_findAllGoods',this, 'page10025')">基本商品库</a></dt>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/goodsManage/goods_add.jsp',this, 'page10026')">手动添加药品</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/goods_addGoodsPage',this, 'page10026')">手动添加药品</a></dt>
 		                </dl>
 		            </li>
 		        	<li>
 		                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-yunying left" onmouseenter="getLeftTips(this, '基础库内容')" onmouseleave="layer.closeAll('tips')"></i><font>会员管理</font><i class="iconfont icon-dajiantouyou right"></i></a>
 		                <dl> 
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/user_findAllUserList',this, 'page10028')">会员列表</a></dt>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/base/base_add.jsp',this, 'page10027')">添加会员</a></dt>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/base/maintain.html',this, 'page10032')">维护中页面</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/tgls/user/user_add.jsp',this, 'page10027')">添加会员</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/user/maintain.html',this, 'page10032')">维护中页面</a></dt>
 		                </dl>
 		           	</li>
 		        
@@ -80,8 +82,8 @@
 		        	<li>
 		                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-icon left" onmouseenter="getLeftTips(this, '出入库管理')" onmouseleave="layer.closeAll('tips')"></i><font>库存管理</font><i class="iconfont icon-dajiantouyou right"></i></a>
 		                <dl>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/into_out/outData.html',this, 'page10036')">库存查询</a></dt>
-		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/into_out/outData.html',this, 'page10036')">入库管理</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/Outrepertory_outRepertoryquery',this, 'page10050')">库存查询</a></dt>
+		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/repertory_repertoryall2',this, 'page10036')">入库管理</a></dt>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/into_out/intoData.html',this, 'page10037')">出库管理</a></dt>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/into_out/intoData.html',this, 'page10037')">库存警报</a></dt>
 		                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/into_out/outPrintData.html',this, 'page10038')">打印单</a></dt>
@@ -123,13 +125,37 @@
 					<ul>
 						<li><a href="javascript:void(0)" onclick="menuCAClick('tgls/modify_password.html',this, 'pageNotice', '通知公告')" onmouseenter="getTips(this, '通知公告')" onmouseleave="layer.closeAll('tips')"><i class="iconfont icon-tongzhigonggao1"></i><span class="news"></span></a></li>
 						<li><a href="javascript:void(0)" id="fullScreenBut" onclick="fullScreen('fullScreenBut')" onmouseenter="getTips(this, '全屏')" onmouseleave="layer.closeAll('tips')"><i class="iconfont icon-full-screen"></i></a></li>
+						<!-- 店员和店长 -->
 						<li>
-							<a href="javascript:void(0)"><font>管理员</font><i class="iconfont icon-up-copy"></i></a>
+							<a href="javascript:void(0)"><font>
+						<s:if test="#session.clerklogin!=null">
+							您好：<s:property value="#session.clerklogin.cname"/>
+						</s:if> 
+					
+						
+						<s:elseif test="#session.adminlogin!=null">
+							管理员:<s:property value="#session.adminlogin.name"/>
+						</s:elseif> 
+						
+		
+							</font><i class="iconfont icon-up-copy"></i></a>
 							<dl>
-			                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/modify_password.html',this, 'pageUserInfo')">基本资料</a></dt>
-			                	<dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/modify_password.html',this, 'pageModifyPassword')">修改密码</a></dt>
+							<s:if test="#session.clerklogin!=null">
+							<dt><a href="${pageContext.request.contextPath}/AdminLogin.jsp" onclick="menuCAClick('',this, 'pageModifyPassword')">管理员登录</a></dt>
+							</s:if>
+							<dt><a href="${pageContext.request.contextPath}/login_loginOut" onclick="menuCAClick('',this, 'pageUserInfo')">退出登录</a></dt>
 			                </dl>
 						</li>
+						<%-- <!-- 店员和店长 -->
+						<s:if test="#session.admin.size()!=0">
+						<li>
+							<a href="javascript:void(0)"><font><s:property value="#session.clerklogin.cname"/></font><i class="iconfont icon-up-copy"></i></a>
+							<dl>
+			                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/login_loginOut',this, 'pageUserInfo')">退出登录</a></dt>
+			                	<dt><a href="javascript:void(0)" onclick="menuCAClick('${pageContext.request.contextPath}/login_adminLogin',this, 'pageModifyPassword')">管理员登录</a></dt>
+			                </dl>
+						</li>
+						</s:if> --%>
 						<li><a href="login.html" onmouseenter="getTips(this, '退出系统')" onmouseleave="layer.closeAll('tips')"><i class="iconfont icon-084tuichu"></i></a></li>
 					</ul>
 				</div>
